@@ -1,0 +1,85 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #380082; /* Fundal foarte închis spre bleumarin/mov */
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: #22014d; /* Mov foarte închis pentru carduri */
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid #4831d4; /* Accent Deep Purple */
+    border-right: 5px solid #4831d4; /* Accent Deep Purple */
+    transition: all 0.4s ease-in-out;
+}
+
+h1, h2 {
+    color: #9d8df1; /* Mov deschis/pastelat pentru contrast */
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 {
+    text-align: center;
+    border-bottom: 2px solid #4831d4;
+    padding-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 12px;
+    padding-left: 15px;
+    position: relative;
+}
+
+li::before {
+    content: "•";
+    color: #4831d4;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+strong {
+    color: #b8afff;
+}
+
+a {
+    color: #4cc9f0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #4831d4;
+    text-decoration: underline;
+}
+
+section:hover {
+    /* Ridicarea secțiunii */
+    transform: translateY(-8px);
+    
+    /* Schimbarea culorilor cu efect de blend */
+    background-color: #1f2d52; /* O nuanță un pic mai deschisă la hover */
+    border-left-color: #b8afff;  /* Movul devine mai deschis */
+    border-right-color: #b8afff; /* Movul devine mai deschis */
+    
+    /* Opțional: o umbră mai difuză când se ridică */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
