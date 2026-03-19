@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Studiu Individual</title>
+
+    <script>
+        alert("A se verifica consola!");
+    </script>
+    
+    <script>
+        const books = [{title:'Book', author:'Name'},
+    {title:'Book2', author:'Name2'}];
+    </script>
+
+    <script>
+        function extragemTitluri() {
+            const titles = books.map(book => book.title);
+            return titles;
+        }
+
+        const rezultat = extragemTitluri(books);
+        console.log(rezultat);
+    </script>
+</html>

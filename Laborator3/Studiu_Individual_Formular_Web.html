@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Pagina web cu formular</title>
+    <script>
+        alert("Bine ati venit pe pagina web cu formular!");
+    </script>
+    
+    <body>
+        <h1>Formular de contact</h1>
+        <form id="contactForm">
+            <label for="nume">Nume:</label><br>
+            <input type="text" id="nume" name="nume"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <label for="mesaj">Mesaj:</label><br>
+            <textarea id="mesaj" name="mesaj"></textarea><br><br>
+            <input type="button" value="Trimite" onclick="trimiteFormular()">
+        </form>
+    
+        <script>
+            function validareDate() {
+                const nume = document.getElementById("nume").value;
+                const email = document.getElementById("email").value;
+                const mesaj = document.getElementById("mesaj").value;
+
+                if (nume === "" || email === "" || mesaj === "") {
+                    alert("Toate campurile sunt obligatorii!");
+                    return false;
+                }
+
+                if (!email.includes("@")) {
+                    alert("Adresa de email nu este valida!");
+                    return false;
+                }
+
+                if (mesaj.length < 5) {
+                    alert("Mesajul trebuie sa contina cel putin 5 caractere!");
+                    return false;
+                }
+
+                return true;
+            }
+
+            function salvareDateObiect() {
+                const nume = document.getElementById("nume").value;
+                const email = document.getElementById("email").value;
+                const mesaj = document.getElementById("mesaj").value;
+
+                const dateFormular = {
+                    nume: nume,
+                    email: email,
+                    mesaj: mesaj
+                };
+
+                return dateFormular;
+            }
+
+            function afisareDateInConsola(date) {
+                console.log("Nume: " + date.nume);
+                console.log("Email: " + date.email);
+                console.log("Mesaj: " + date.mesaj);
+            }
+
+            function trimiteFormular() {
+                if (validareDate()) {
+                    const date = salvareDateObiect();
+                    afisareDateInConsola(date);
+                    alert("Formular trimis cu succes!");
+                }
+            }
+        </script>
+    </body>
+</html>

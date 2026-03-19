@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Primul script JavaScript</title>
+    <script>
+        alert("primul script JavaScript");
+    </script>
+</head>
+<body>
+    <h1>Primul script JavaScript</h1>
+    <p>Acesta este primul meu script JavaScript.</p>
+</body>
+</html>
+<script>
+    // Afisarea mesajelor
+    alert("Salutations");
+    console.log("Avem mesaj si in consola");
+    document.write("Avem si mesaj in pagina<br>");
+
+    // Variabile JavaScript
+    var nume = "nuEu";
+    let varsta = 21;
+    const valoare_PI = 3.14;
+
+    // Domeniul de existenta al variabilelor (Scope)
+    var declaredVariable = 0;
+    function test() {
+        undeclaredVariable = 1; // Aceasta variabila nu este declarata cu var, let sau const
+        var declaredVariable = 2; // Aceasta variabila este declarata cu var
+    }
+
+    test();
+
+    document.write(undeclaredVariable); // Va afisa 1
+    document.write("<br>");
+    document.write(declaredVariable); // Va afisa 0 
+
+    // Functii JavaScript
+    function adunare(a, b) {
+        return a + b;
+    }
+
+    var inmultire = function(a, b) {
+        return a * b;
+    };
+
+    const suma = (a, b) => a + b;
+
+    document.write(adunare(5, 3)); // Va afisa 8
+    document.write("<br>");
+    document.write(inmultire(5, 3)); // Va afisa 15
+
+    // Array-uri JavaScript
+    var numbers = [4, 9, 16, 25, 81];
+    numbers.forEach(function(number) {
+        console.log(number); // Va afisa fiecare numar din array in consola
+    });
+
+    // Metoda map()
+    const numbers = [4, 9, 16, 25, 81];
+    const newArr = numbers.map(function(number) {
+        return num * 10;
+    });
+
+    console.log(newArr) // Va afisa [40, 90, 160, 250, 810] in consola
+
+    // Obiecte JavaScript
+    var student = {
+        nume: "Ion",
+        varsta: 20,
+        afisare: function() {
+            console.log(this.nume);
+        }
+    }
+
+    student.afisare(); // Va afisa "Ion" in consola
+</script>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Exercitii JavaScript</title>
+    <script>
+        alert("Folosire alert in pagina de exercitii!");
+    </script>
+</head>
+<body>
+    <h1>Exercitii JavaScript</h1>
+    <p>Acestea sunt exercitiile pentru laboratorul 3:</p>
+
+    <ol>
+    <li>Creati o pagina HTML care afiseaza mesaje folosind alert(), console.log() si document.write().</li>
+    <li>Declarati variabile pentru nume student, anul de studiu si media si afisati-le in consola.</li>
+    <li>Scrieti o functie care calculeaza suma si produsul a doua numere.</li>
+    <li>Creati un array cu 10 numere si utilizati forEach si map.</li>
+    <li>Creati un obiect car cu proprietatile brand, model si an.</li>
+</ol>
+    
+    <input type="text" id="casutaMea" placeholder="Scrie ceva aici...">
+    <input type="number" id="casutaVarsta" placeholder="Varsta ta">
+    <button onclick="afiseazaMesaj()">Apasa-ma</button>
+    <br>
+    <br>
+    <input type="text" id="casutaA" placeholder="Valoare a">
+    <input type="text" id="casutaB" placeholder="Valoare b">
+    <button onclick="afiseazaSuma()">Calculeaza Suma</button>
+    <button onclick="afiseazaProdus()">Calculeaza Produs</button>
+    <br>
+    <br>
+    <label for="numereInput">Introdu numere separate prin spatiu:</label><br>
+    <input type="text" id="numereInput" placeholder="Ex: 1 2 3 4 5">
+    <button onclick="afisareArrayInConsola()">Afiseaza Array in Consola</button>
+    <br>
+    <br>
+
+    <script>
+        function afiseazaMesaj() {
+            var text = document.getElementById("casutaMea").value;
+            var varsta = document.getElementById("casutaVarsta").value;
+            document.write("Ai scris: " + text + " si ai varsta: " + varsta);
+        }
+    </script>
+
+    <script>
+        var numeStudent = "Maria";
+        var anulDeStudiu = 2;
+        var media = 9.5;
+
+        console.log("Nume student: " + numeStudent);
+        console.log("Anul de studiu: " + anulDeStudiu);
+        console.log("Media: " + media);
+    </script>
+
+    <script>
+        function calculeazaSuma(a, b) {
+            return a + b;
+        }
+
+        function afiseazaSuma() {
+            var a = parseFloat(document.getElementById("casutaA").value);
+            var b = parseFloat(document.getElementById("casutaB").value);
+            var suma = calculeazaSuma(a, b);
+            document.write("Suma: " + suma);
+        }
+
+        function calculeazaProdus(a, b) {
+            return a * b;
+        }
+
+        function afiseazaProdus() {
+            var a = parseFloat(document.getElementById("casutaA").value);
+            var b = parseFloat(document.getElementById("casutaB").value);
+            var produs = calculeazaProdus(a, b);
+            document.write("Produs: " + produs);
+        }
+    </script>
+
+    <script>
+        function afisareArrayInConsola() {
+            var numereInput = document.getElementById("numereInput").value;
+            const numereArray = numereInput.split(" ").map(Number);
+            forEach(numereArray, function(numar) {
+                console.log(numar);
+            });
+        }
+    </script>
+
+    <script>
+        var car = {
+            brand: "Toyota",
+            model: "Corolla",
+            an: 2020
+        };
+
+        console.log("Brand: " + car.brand);
+        console.log("Model: " + car.model);
+        console.log("An: " + car.an);
+
+        document.writeln("<b>Brand:</b> " + car.brand);
+        document.writeln("<b>Model:</b> " + car.model);
+        document.writeln("<b>An:</b> " + car.an);
+    </script>
+</body>
+</html>
