@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>ROMovies</title>
+</head>
+<body>
+    <center>
+    <h1>ROMovies</h1>
+    <h2>Filme pentru romani, traduse de catre romani</h2>
+    </center>
+
+    <hr>
+
+    <center><p>Pentru <em>a accesa site-ul</em>, mai intai va <b>trebui sa va inregistrati</b>.
+    Dupa aceea, veti puteti folosi toate functiile site-ului si accesa <strong>filmul</strong> dorit, <strong>subtitrat in limba romana</strong>.</p></center>
+
+    <img src="logo_ROMovies.png" alt="ROMovies Logo" title="ROMovies Logo" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: 50%;">
+    <div style="height: 50%;"><span>Informatii suplimentare: crearea contului inseamna ca sunteti de acord cu termenii si conditiile folosirii site-ului,
+        iar pentru crearea unui cont este necesar alegerea unui username, a unei parole si a unei adrese de email valide.
+    </span></div>
+
+    <fieldset>
+        <legend>Cautare filme</legend>
+
+        <form id="formularCautare">
+        <input type="text" name="search" placeholder="Cauta un film..." maxlength=50 size=30 value="">
+        <input type="number" name="an" placeholder="Anul aparitiei..." min=1900 max=2026 value="" step="1">
+
+        <select multiple name="gen" size=5>
+            <option value="actiune" selected>Actiune</option>
+            <option value="comedie">Comedie</option>
+            <option value="drama">Drama</option>
+            <option value="horror">Horror</option>
+            <option value="sf">SF</option>
+        </select>
+
+        <label>
+            <input type="checkbox" name="status" value="vizionat" checked> Vizionat
+        </label>
+
+        <label>
+            <input type="checkbox" name="status" value="favorit"> Favorit
+        </label>
+
+        <label>
+            <input type="checkbox" name="status" value="indisponibil" disabled> Indisponibil
+        </label>
+
+        <label>
+            <input type="radio" name="format" value="dvd"> DVD
+        </label>
+        
+        <label>
+            <input type="radio" name="format" value="bluray"> Blu-ray
+        </label>
+
+        <label>Comentarii:</label>
+        <textarea name="comentarii" cols="60" rows="1" readonly>Va rugam sa respectati termenii si conditiile site-ului.</textarea>
+        <input type="submit" value="Cauta">
+        <input type="reset" value="Anulare">
+    </fieldset>
+
+    <br><br>
+
+    <table id="tabelFilme" border="2" width="80%" bgcolor="#f0f0f0" align="center">
+        <tr bgcolor="#4CAF50">
+            <th align="center" valign="middle">Titlu</th>
+            <th align="center" valign="middle">Regizor</th>
+            <th align="center" valign="middle">An</th>
+            <th align="center" valign="middle">Rating</th>
+        </tr>
+        <tr>
+            <td align="left" valign="middle">The Rookie</td>
+            <td align="center" valign="middle" rowspan="2">Alexi Hawley</td>
+            <td align="center" valign="middle">2018</td>
+            <td align="center" valign="middle">8.7/10</td>
+        </tr>
+        <tr>
+            <td align="left" valign="middle">The Rookie: Feds</td>
+            <td align="center" valign="middle">2023</td>
+            <td align="center" valign="middle">7.8/10</td>
+        </tr>
+        <tr>
+            <td align="left" valign="middle">House M.D.</td>
+            <td align="center" valign="middle">Paul Attanasio</td>
+            <td align="center" valign="middle">2004</td>
+            <td align="center" valign="middle">9.4/10</td>
+        </tr>
+        <tr>
+            <td align="left" valign="middle">Dexter</td>
+            <td align="center" valign="middle">James Manos Jr.</td>
+            <td align="center" valign="middle">2006</td>
+            <td align="center" valign="middle">9.7/10</td>
+        </tr>
+        <tr bgcolor="#FFD700">
+            <td colspan="4" align="center" valign="middle"><b>Total: 4 seriale TV</b></td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <hr>
+
+    <center>
+        <h2>Cum sa adaugi un film?</h2>
+    </center>
+
+    <ol start="1" type="I">
+        <li>Acceseaza formularul de cautare</li>
+        <li>Introdu titlul filmului sau seria dorita</li>
+        <li>Selecteaza genul si anul aparitiei</li>
+        <li>Marcheaza statusul filmului (vizionat, favorit, indisponibil)</li>
+        <li>Alege formatul preferat (DVD sau Blu-ray)</li>
+        <li>Apasa butonul "Cauta" pentru a adauga filmul</li>
+    </ol>
+
+    <br>
+
+    <center>
+        <h2>Genuri disponibile</h2>
+    </center>
+
+    <ul>
+        <li>Actiune</li>
+        <li>Comedie</li>
+        <li>Drama</li>
+        <li>Horror</li>
+        <li>Science Fiction</li>
+    </ul>
+
+    <br>
+
+    <hr>
+
+    <center>
+        <h2>Resurse si Link-uri</h2>
+    </center>
+
+    <p>Viziteaza aceste site-uri pentru mai multe informatii despre filme:</p>
+    <ul>
+        <li><a href="https://www.imdb.com" target="_blank" name="imdb">IMDb - Internet Movie Database</a></li>
+        <li><a href="https://www.rottentomatoes.com" target="_blank" name="rottentomatoes">Rotten Tomatoes</a></li>
+    </ul>
+
+    <br>
+
+    <center>
+        <a href="#formularCautare">Inapoi la formularul de cautare</a>
+    </center>
+
+    <br><br>
+
+    <script>
+        var numeCinema = "ROMovies";
+        let nrFilme = 4;
+        const pretBilet = 22.5;
+
+        alert("Cinema: " + numeCinema + "\nNumar de filme: " + nrFilme + "\nPret bilet: " + pretBilet + " RON");
+
+        console.log("Cinema: " + numeCinema);
+        console.log("Numar de filme: " + nrFilme);
+        console.log("Pret bilet: " + pretBilet + " RON");
+
+        document.write("<h3>Informatii Cinema</h3>");
+        document.write("<p>Cinema: <b>" + numeCinema + "</b></p>");
+        document.write("<p>Numar de filme in catalog: <b>" + nrFilme + "</b></p>");
+        document.write("<p>Pret bilet standard: <b>" + pretBilet + " RON</b></p>");
+
+        const year = new Date().getFullYear(); // Pentru a pune limita sa fie anul curent, nu este folosit.
+
+        // Functie clasica (declarata)
+        function calculeazaCostBilete(pretBilet, nrPersoane) {
+            if (nrPersoane > 5) {
+                return pretBilet * nrPersoane * 0.8;
+            }
+            return pretBilet * nrPersoane;
+        }
+
+        // Functie anonima (function expression)
+        var calculeazaRatingMediu = function(rating1, rating2, rating3) {
+            var suma = rating1 + rating2 + rating3;
+            return (suma / 3).toFixed(1);
+        };
+
+        // Arrow function
+        const formateazaInfo = (titlu, an, rating) => {
+            return titlu + " (" + an + ") - Rating: " + rating + "/10";
+        };
+
+        // ARRAY DE OBIECTE
+        
+        const filme = [
+            { titlu: "The Rookie", regizor: "Alexi Hawley", an: 2018, rating: 8.7, gen: "Drama", vizionat: true },
+            { titlu: "The Rookie: Feds", regizor: "Alexi Hawley", an: 2023, rating: 7.8, gen: "Drama", vizionat: true },
+            { titlu: "House M.D.", regizor: "Paul Attanasio", an: 2004, rating: 9.4, gen: "Medical Drama", vizionat: false },
+            { titlu: "Dexter", regizor: "James Manos Jr.", an: 2006, rating: 9.7, gen: "Thriller", vizionat: true },
+            { titlu: "Breaking Bad", regizor: "Vince Gilligan", an: 2008, rating: 9.1, gen: "Drama", vizionat: false },
+            { titlu: "Game of Thrones", regizor: "David Benioff", an: 2011, rating: 7.2, gen: "Fantasy", vizionat: true },
+            { titlu: "The Office", regizor: "Greg Daniels", an: 2005, rating: 9.0, gen: "Comedy", vizionat: false }
+        ];
+
+        // Obiect cinema + metodele
+        var cinema = {
+            nume: "ROMovies",
+            oras: "Baia Mare",
+            filme: filme,
+
+            afiseazaCatalog: function() {
+                console.log("--- CATALOG " + this.nume + " ---");
+                this.filme.forEach(function(film) { 
+                    var statusViz = film.vizionat ? "Da" : "Nu";
+                    console.log("Titlu: " + film.titlu + " | Regizor: " + film.regizor + " | An: " + film.an + " | Rating: " + film.rating + "/10 | Gen: " + film.gen + " | Vizionat: " + statusViz);
+                });
+            },
+
+            calculeazaRatingMediu: function() {
+                var suma = this.filme.reduce(function(acc, film) {
+                    return acc + film.rating;
+                }, 0);
+                return (suma / this.filme.length).toFixed(2);
+            },
+
+            cautaFilm: function(titluFilm) {
+                var gasit = this.filme.find(function(film) {
+                    return film.titlu.toLowerCase() === titluFilm.toLowerCase();
+                });
+                if (gasit) {
+                    console.log("Film gasit: " + gasit.titlu + " - Rating: " + gasit.rating + "/10");
+                    return gasit;
+                } else {
+                    console.log("Film nu gasit: " + titluFilm);
+                    return null;
+                }
+            },
+
+            filtreazaDupaGen: function(gen) {
+                console.log("FILME DUPA GEN: " + gen);
+                var filtrare = this.filme.filter(function(film) {
+                    return film.gen === gen;
+                });
+                filtrare.forEach(function(film) {
+                    console.log(film.titlu + " - Rating: " + film.rating + "/10");
+                });
+                return filtrare;
+            }
+        };
+
+        // Exercitiu 4
+        var form = document.getElementById("formularCautare");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            var titlu = document.querySelector("input[name='search']").value.trim();
+            var an = document.querySelector("input[name='an']").value;
+            var genSelect = document.querySelector("select[name='gen']");
+            var gen = genSelect.value;
+            
+            var valideaza = true;
+            
+            if (titlu === "") {
+                alert("Titlul filmului nu poate fi gol!");
+                valideaza = false;
+            }
+            
+            if (an === "") {
+                alert("Anul aparitiei nu poate fi gol!");
+                valideaza = false;
+            } else {
+                var anInt = parseInt(an);
+                if (isNaN(anInt) || anInt < 1900 || anInt > 2026) {
+                    alert("Anul trebuie sa fie intre 1900 si 2026!");
+                    valideaza = false;
+                }
+            }
+            
+            if (gen === "") {
+                alert("Trebuie sa selectati un gen!");
+                valideaza = false;
+            }
+            
+            if (valideaza) {
+                var filmNou = {
+                    titlu: titlu,
+                    regizor: "User",
+                    an: anInt,
+                    rating: 0,
+                    gen: gen,
+                    vizionat: false
+                };
+                
+                filme.push(filmNou);
+                
+                var tabel = document.getElementById("tabelFilme");
+                var tr = document.createElement("tr");
+                
+                var td1 = document.createElement("td");
+                td1.innerText = titlu;
+                td1.setAttribute("align", "left");
+                tr.appendChild(td1);
+                
+                var td2 = document.createElement("td");
+                td2.innerText = "User";
+                td2.setAttribute("align", "center");
+                tr.appendChild(td2);
+                
+                var td3 = document.createElement("td");
+                td3.innerText = anInt;
+                td3.setAttribute("align", "center");
+                tr.appendChild(td3);
+                
+                var td4 = document.createElement("td");
+                td4.innerText = "0/10";
+                td4.setAttribute("align", "center");
+                tr.appendChild(td4);
+                
+                var randTotal = tabel.rows[tabel.rows.length - 1];
+                tabel.insertBefore(tr, randTotal);
+                
+                var totalRand = tabel.rows[tabel.rows.length - 1];
+                totalRand.cells[0].innerText = "Total: " + filme.length + " filme";
+                
+                alert("Film adaugat cu succes!\n\nTitlu: " + titlu + "\nAn: " + anInt + "\nGen: " + gen);
+                
+                form.reset();
+            }
+        });
+
+
+
+        // Test obiect cinema
+        cinema.afiseazaCatalog();
+        console.log("Rating mediu: " + cinema.calculeazaRatingMediu());
+        cinema.cautaFilm("House M.D.");
+        cinema.cautaFilm("Film Inexistent"); // Test cu titlu invalid
+        cinema.filtreazaDupaGen("Drama");
+
+        // forEach() - filme cu rating peste 8.0
+        console.log("FILME CU RATING > 8.0");
+        filme.forEach(function(film) {
+            if (film.rating > 8.0) {
+                console.log(film.titlu + " - Rating: " + film.rating + "/10");
+            }
+        });
+
+        // map() - array filme forma string
+        console.log("FILME FORMATATE");
+        const filmeFormatate = filme.map(function(film) {
+            return film.titlu + " (" + film.an + ") - " + film.rating + "/10";
+        });
+        filmeFormatate.forEach(function(str) {
+            console.log(str);
+        });
+
+        // filter() - filmele nevizionate
+        console.log("FILME NEVIZIONATE");
+        const filmeNevizionate = filme.filter(function(film) {
+            return film.vizionat === false;
+        });
+        filmeNevizionate.forEach(function(film) {
+            console.log(film.titlu + " - Vizionat: " + film.vizionat);
+        });
+
+        // reduce() - suma si media ratingurilor
+        console.log("STATISTICI RATINGURI");
+        const sumaRatinguri = filme.reduce(function(acumulator, film) {
+            return acumulator + film.rating;
+        }, 0);
+        const mediaRatinguri = sumaRatinguri / filme.length;
+        console.log("Suma ratingurilor: " + sumaRatinguri);
+        console.log("Media ratingurilor: " + mediaRatinguri.toFixed(2));
+
+        document.write("<h3>Statistici Filme</h3>");
+        document.write("<p>Total filme: " + filme.length + "</p>");
+        document.write("<p>Suma ratingurilor: " + sumaRatinguri + "</p>");
+        document.write("<p>Media ratingurilor: " + mediaRatinguri.toFixed(2) + "/10</p>");
+        
+        let costGrup = calculeazaCostBilete(22.5, 7);
+        console.log("Cost grup (7 pers): " + costGrup);
+
+        let costNormal = calculeazaCostBilete(22.5, 3);
+        console.log("Cost normal (3 pers): " + costNormal);
+
+        let ratingMediu = calculeazaRatingMediu(8.5, 7.2, 9.0);
+        let info = formateazaInfo("Inception", 2010, ratingMediu);
+        document.write("<p>" + info + "</p>");
+    </script>
+</body>
+</html>
