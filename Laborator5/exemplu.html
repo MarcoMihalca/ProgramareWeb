@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="utf-8"/> 
+<title>PRW 2022</title> 
+<link rel="stylesheet" href="http://cti.ubm.ro/prw/05/style.css"> 
+<script src="http://cti.ubm.ro/prw/05/my.js"></script> 
+</head> 
+<body> 
+<p>Programare Web - 05</p> 
+<div id="container"> 
+<div id='d1'> 
+<textarea id="textArea" rows="8" cols="50"> 
+poly = [320,290, 100,360, 120,240, 320,290]; 
+my.log("poly: " + poly);  
+</textarea> 
+<br/> 
+<button onclick="deseneaza();">RUN</button> 
+<button onclick="sterge();">CLEAR</button> 
+</div> 
+<div id='myconsole'> 
+    my console 
+</div> 
+</div> 
+
+<ul> 
+<li><a href="javascript:loadex(1);">ex.1 - callbacks</a></li> 
+<li><a href="javascript:loadex(2);">ex.2 - task async</a></li> 
+<li><a href="javascript:loadex(3);">ex.3 - student</a></li> 
+<li><a href="javascript:loadex(4);">ex.4 - array filter</a></li> 
+</ul> 
+
+<script> 
+// SOLUTIA = nu putem accesa functia de pe server, o creez eu
+const my = {
+    log: function(mesaj) {
+        let consola = document.getElementById("myconsole");
+        if (consola.innerHTML.trim() === "my console") {
+            consola.innerHTML = "";
+        }
+        consola.innerHTML += mesaj + "<br/>";
+    }
+};
+// -----------------------------------------------------------------------------------
+
+let arrex = [ 
+"nothing", 
+
+"const greeks = ['Aphrodite', 'Artemis', 'Athena'];\ngreeks.forEach(item => my.log(item));", 
+
+`function finished() { 
+  my.log("The task has finished"); 
+} 
+function thingThatTakesALongTime(callbackFunction) { 
+  /*... Task that takes a long time to complete */ 
+  callbackFunction(); /* This is where the 'console.log' happens */ 
+} 
+/* Pass the function to 'thingThatTakesALongTime' just like a normal variable */ 
+thingThatTakesALongTime(finished);`,
+
+`/* Test propriu 1 */
+const student = { nume: "Ion", nota: 10 };
+my.log("Detalii student:");
+Object.keys(student).forEach(cheie => {
+    my.log(cheie + ": " + student[cheie]);
+});`,
+
+`/* Test propriu 2 */
+const temperaturi = [15, 22, -3, 30, 5, -1];
+const tempPozitive = temperaturi.filter(t => t > 0);
+my.log("Temperaturi peste zero: " + tempPozitive);`
+];   
+
+function loadex(nr){ 
+    document.getElementById("textArea").value = arrex[nr]; 
+} 
+
+function deseneaza() {
+    let codJavaScript = document.getElementById("textArea").value;
+    try {
+        eval(codJavaScript);
+    } catch (eroare) {
+        my.log("Eroare de cod: " + eroare.message);
+    }
+}
+
+function sterge() {
+    document.getElementById("myconsole").innerHTML = "my console";
+}
+
+</script>   
+</body> 
+</html>

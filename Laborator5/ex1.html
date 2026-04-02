@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>exemplu1</title>
+    </head>
+
+    <body>
+        <h1>Pagina exercitii</h1>
+        <p>Pagina pentru exercitiile din laborator 5 Programare Web.</p>
+        <button onclick="afiseazaCarti()">Afisează Cărți</button>
+        <button onclick="afiseazaCartiCuDelay()">Afisează Cărți (cu Delay)</button>
+        <div id="output"></div>
+        <div id="sectiune-text">Asteptati 3 secunde..</div>
+    </body>
+
+    <style>
+        #sectiune-text {
+            border: 3px solid #2c3e50;
+            background-color: #add8e6; /* Albastru deschis (LightBlue) */
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 400px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+    </style>
+
+    <script>
+        const carti = ["Dune", "1984", "Fahrenheit 451", "Hobbitul", "Darkly Dreaming Dexter"];
+
+        function afiseazaCarti() {
+            let output = document.getElementById("output");
+            let text = "";
+            carti.forEach((item, index) => {
+                text += (index + 1) + ". " + item + "<br>";
+            });
+            output.innerHTML = text;
+            console.log(carti);
+        }
+
+        function ArrayPlusDelay(array, delegate, delay) { 
+            array.forEach(function (el, i) { 
+                setTimeout(function() {                         
+                    delegate(array[i]); 
+                }, i * delay);                                    
+            }); 
+        }
+
+        function afiseazaCartiCuDelay() {
+            let output = document.getElementById("output");
+            output.innerHTML = ""; // Goleste output-ul anterior
+            let counter = 0;
+
+            ArrayPlusDelay(carti, function(carte) {
+                counter++;
+                output.innerHTML += counter + ". " + carte + "<br>";
+            }, 2000);
+        }
+
+        let sectiune = document.getElementById("sectiune-text");
+        let schimbat = false;
+        const culori = ["#add8e6", "#90ee94", "#ffcccb"];
+        let indexCuloare = 0;
+
+        setTimeout(function() {
+            sectiune.style.backgroundColor = "#90ee94";
+            sectiune.innerHTML = "Culoarea de background s-a schimbat!";
+            schimbat = true;
+        }, 3000);
+
+        setInterval(function() {
+            if (schimbat) {
+                sectiune.style.backgroundColor = culori[indexCuloare];
+                sectiune.innerHTML = "Culoare se va schimba la fiecare 5 secunde!";
+
+            indexCuloare++;
+
+            if (indexCuloare >= culori.length) {
+                indexCuloare = 0;
+            }
+        }
+        }, 5000);
+    </script>
+</html>
