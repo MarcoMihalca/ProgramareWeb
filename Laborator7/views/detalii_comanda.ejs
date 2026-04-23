@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalii Comanda SmartBag</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body style="background-color: #f4f4f4; font-family: sans-serif; padding: 20px;">
+    <header>
+        <a href="/dashboard">← Inapoi la Dashboard</a>
+    </header>
+    
+    <h2>Detalii Comanda #<%= comanda.id %></h2>
+    
+    <table border="1" style="background-color: white; padding: 20px; width: 100%;">
+        <tr>
+            <td><strong>ID Comanda:</strong></td>
+            <td><%= comanda.id %></td>
+        </tr>
+        <tr>
+            <td><strong>Produs:</strong></td>
+            <td><%= comanda.produs %></td>
+        </tr>
+        <tr>
+            <td><strong>Status:</strong></td>
+            <td><%= comanda.status %></td>
+        </tr>
+        <tr>
+            <td><strong>Temperatura:</strong></td>
+            <td><%= comanda.temperatura %></td>
+        </tr>
+        <tr>
+            <td><strong>Baterie Geanta SmartBag:</strong></td>
+            <td><%= comanda.baterie_geanta %></td>
+        </tr>
+        <tr>
+            <td><strong>Senzor Activ:</strong></td>
+            <td><%= comanda.senzor_activ %></td>
+        </tr>
+    </table>
+    
+    <br>
+    <a href="/dashboard">Inapoi la Dashboard</a>
+</body>
+</html>
