@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head><meta charset="UTF-8"><title>Editeaza Proiect</title></head>
+<body>
+
+<h1>Editeaza Proiect</h1>
+
+<% if (erori) { %>
+    <% Object.values(erori).forEach(err => { %>
+        <p style="color:red"><%= err.message %></p>
+    <% }) %>
+<% } %>
+
+<form action="/proiecte/<%= proiect._id %>/edit" method="POST">
+
+    <p>
+        <label>Nume proiect: <input type="text" name="nume" value="<%= proiect.nume %>" required></label>
+    </p>
+
+    <p>
+        <label>Descriere: <textarea name="descriere" required><%= proiect.descriere %></textarea></label>
+    </p>
+
+    <p>
+        <label>Pret (RON): <input type="number" name="pret" value="<%= proiect.pret %>" min="0"></label>
+    </p>
+
+    <p>
+        <label>Categorie:
+            <select name="categorie" required>
+                <% ['Software', 'Hardware', 'Tools', 'Design'].forEach(cat => { %>
+                    <option value="<%= cat %>" <%= proiect.categorie === cat ? 'selected' : '' %>><%= cat %></option>
+                <% }) %>
+            </select>
+        </label>
+    </p>
+
+    <p>
+        <label>Data lansarii:
+            <input type="date" name="dataLansare"
+                value="<%= proiect.dataLansare ? proiect.dataLansare.toISOString().split('T')[0] : '' %>">
+        </label>
+    </p>
+
+    <p>
+        <label><input type="checkbox" name="esteActiv" <%= proiect.esteActiv ? 'checked' : '' %>> Proiect activ</label>
+    </p>
+
+    <button type="submit">Actualizeaza</button>
+    <a href="/proiecte/<%= proiect._id %>">Anuleaza</a>
+
+</form>
+
+</body>
+</html>

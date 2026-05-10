@@ -12,6 +12,7 @@ const usersDb = require('./db/users');
 const ordersDb = require('./db/orders');
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());

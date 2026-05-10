@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head><meta charset="UTF-8"><title><%= proiect.nume %></title></head>
+<body>
+
+<a href="/proiecte">← Inapoi la lista</a>
+
+<h1><%= proiect.nume %></h1>
+<p><%= proiect.descriere %></p>
+<p>Pret: <%= proiect.pret %> RON</p>
+<p>Categorie: <%= proiect.categorie %></p>
+<p>Status: <%= proiect.esteActiv ? 'Activ' : 'Inactiv' %></p>
+<p>Data lansarii: <%= proiect.dataLansare.toLocaleDateString('ro-RO') %></p>
+<p>Adaugat pe: <%= proiect.createdAt.toLocaleDateString('ro-RO') %></p>
+
+<!-- Ex 4.2: afisam cine a creat proiectul -->
+<% if (proiect.createdBy) { %>
+    <p>Creat de: <%= proiect.createdBy.username %> (<%= proiect.createdBy.email %>)</p>
+<% } %>
+
+<!-- Butoane editare/stergere doar pentru userii logati -->
+<% if (userLogat) { %>
+    <a href="/proiecte/<%= proiect._id %>/edit"><button>Editeaza</button></a>
+
+    <form action="/proiecte/<%= proiect._id %>/delete" method="POST" style="display:inline">
+        <button type="submit" onclick="return confirm('Sigur vrei sa stergi?')">Sterge</button>
+    </form>
+<% } %>
+
+</body>
+</html>

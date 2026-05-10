@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head><meta charset="UTF-8"><title>Proiecte</title></head>
+<body>
+
+<h1>Lista Proiecte</h1>
+
+<% if (userLogat) { %>
+    <p>Salut, <b><%= userLogat.username %></b>! <a href="/logout">Logout</a></p>
+    <a href="/proiecte/nou">+ Adauga proiect nou</a>
+<% } else { %>
+    <a href="/login">Login</a> | <a href="/register">Register</a>
+<% } %>
+
+<hr>
+
+<!-- Cautare -->
+<form method="GET" action="/proiecte">
+    <input type="text" name="search" placeholder="Cauta dupa nume..." value="<%= search %>">
+    <button type="submit">Cauta</button>
+    <% if (search) { %><a href="/proiecte">Reset</a><% } %>
+</form>
+
+<hr>
+
+<% if (proiecte.length === 0) { %>
+    <p>Nu exista proiecte.</p>
+<% } %>
+
+<% proiecte.forEach(p => { %>
+    <div>
+        <h3><a href="/proiecte/<%= p._id %>"><%= p.nume %></a></h3>
+        <p><%= p.descriere %></p>
+        <p>Pret: <%= p.pret %> RON | Categorie: <%= p.categorie %> | Status: <%= p.esteActiv ? 'Activ' : 'Inactiv' %></p>
+        <% if (p.createdBy) { %>
+            <p>Creat de: <%= p.createdBy.username %></p>
+        <% } %>
+    </div>
+    <hr>
+<% }) %>
+
+</body>
+</html>

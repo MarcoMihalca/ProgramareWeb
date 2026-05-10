@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head><meta charset="UTF-8"><title>Inregistrare</title></head>
+<body>
+
+<h1>Cont Nou</h1>
+
+<% if (eroare) { %>
+    <p style="color:red"><%= eroare %></p>
+<% } %>
+
+<form action="/register" method="POST">
+
+    <p>
+        <label>Username: <input type="text" name="username" required></label>
+    </p>
+
+    <p>
+        <label>Email: <input type="email" name="email" required></label>
+    </p>
+
+    <p>
+        <label>Parola (minim 6 caractere): <input type="password" name="password" minlength="6" required></label>
+    </p>
+
+    <button type="submit">Creeaza cont</button>
+
+</form>
+
+<p>Ai deja cont? <a href="/login">Logheaza-te</a></p>
+
+</body>
+</html>

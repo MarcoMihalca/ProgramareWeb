@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head><meta charset="UTF-8"><title>Adauga Proiect</title></head>
+<body>
+
+<h1>Adauga Proiect Nou</h1>
+
+<% if (erori) { %>
+    <% Object.values(erori).forEach(err => { %>
+        <p style="color:red"><%= err.message %></p>
+    <% }) %>
+<% } %>
+
+<form action="/proiecte" method="POST">
+
+    <p>
+        <label>Nume proiect: <input type="text" name="nume" required></label>
+    </p>
+
+    <p>
+        <label>Descriere: <textarea name="descriere" required></textarea></label>
+    </p>
+
+    <p>
+        <label>Pret (RON): <input type="number" name="pret" value="100" min="0"></label>
+    </p>
+
+    <p>
+        <label>Categorie:
+            <select name="categorie" required>
+                <option value="">-- Alege --</option>
+                <option value="Software">Software</option>
+                <option value="Hardware">Hardware</option>
+                <option value="Tools">Tools</option>
+                <option value="Design">Design</option>
+            </select>
+        </label>
+    </p>
+
+    <p>
+        <label>Data lansarii: <input type="date" name="dataLansare"></label>
+    </p>
+
+    <p>
+        <label><input type="checkbox" name="esteActiv" checked> Proiect activ</label>
+    </p>
+
+    <button type="submit">Salveaza</button>
+    <a href="/proiecte">Anuleaza</a>
+
+</form>
+
+</body>
+</html>
