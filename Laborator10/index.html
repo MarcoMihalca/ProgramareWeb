@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Laborator 08 - AJAX</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        section { margin-bottom: 30px; padding: 15px; border: 1px solid #eee; border-radius: 5px; }
+        #imageContainer, #searchResults { margin-top: 15px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h3>Exemplul 3 - Selectie SVG (POST)</h3>
+        <select id="svgPicker">
+            <option value="">-- Alege --</option>
+            <option value="mac">Mac</option>
+            <option value="adobe">Adobe</option>
+            <option value="apple">Apple</option>
+        </select>
+        <div id="imageContainer"></div>
+    </section>
+
+    <section>
+        <h3>Exemplul 4 - Cautare MongoDB</h3>
+        <input type="text" id="searchQuery" placeholder="Ex: node, react...">
+        <button id="btnSearch">Cauta</button>
+        <div id="searchResults"></div>
+    </section>
+
+    <section>
+        <h3>Inserare Utilizator (Proiectul ajaxusers)</h3>
+        <input type="text" id="nume" placeholder="Nume"><br><br>
+        <input type="text" id="prenume" placeholder="Prenume"><br><br>
+        <input type="email" id="email" placeholder="Email"><br><br>
+        <button id="btnAdaugaUser">Insereaza User</button>
+        <div id="addUserResult" style="margin-top: 10px; font-weight: bold;"></div>
+    </section>
+
+    <script>
+        $(document).ready(function() {
+            $('#svgPicker').change(function() {
+                const val = $(this).val();
+                if (val) {
+                    $.post("/select-image", { imageChoice: val }, function(data) {
+                        $('#imageContainer').html(data);
+                    });
+                } else {
+                    $('#imageContainer').empty();
+                }
+            });
+
+            $('#btnSearch').click(function() {
+                const q = $('#searchQuery').val().trim();
+                
+                if (!q) {
+                    $('#searchResults').html('<span style="color:red;">Te rog introdu un termen de cautare.</span>');
+                    return;
+                }
+
+                $.getJSON("/find/" + q, function(data) {
+                    if (data.length > 0) {
+                        let html = "<ul>";
+                        data.forEach(item => {
+                            html += `<li><strong>${item.title}</strong> <em>(Tag-uri: ${item.request})</em></li>`;
+                        });
+                        html += "</ul>";
+                        $('#searchResults').html(html);
+                    } else {
+                        $('#searchResults').html("Nu s-a gasit niciun rezultat pentru: " + q);
+                    }
+                }).fail(function() {
+                    $('#searchResults').html("A aparut o eroare la cautare.");
+                });
+            });
+
+            $('#btnAdaugaUser').click(function() {
+                const nume = $('#nume').val().trim();
+                const prenume = $('#prenume').val().trim();
+                const email = $('#email').val().trim();
+
+                if (!nume || !prenume || !email) {
+                    $('#addUserResult').html('<span style="color:red;">Completeaza toate campurile!</span>');
+                    return;
+                }
+
+                $.post("/add-user", { nume: nume, prenume: prenume, email: email }, function(response) {
+                    $('#addUserResult').html('<span style="color:green;">' + response + '</span>');
+                    $('#nume').val('');
+                    $('#prenume').val('');
+                    $('#email').val('');
+                }).fail(function() {
+                    $('#addUserResult').html('<span style="color:red;">Eroare la comunicarea cu serverul.</span>');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

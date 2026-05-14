@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        table { border-spacing:0; border-collapse:collapse; width: 100%; max-width: 600px; }
+        td, th { border:1px solid #0f0f0f; padding: 10px; text-align: left; }
+        th { background-color: #eee; }
+        .controls { margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+
+    <h2>Listă Task-uri (REST + MongoDB Atlas)</h2>
+
+    <div class="controls">
+        <strong>Filtrează Status:</strong><br>
+        <input type="radio" name="taskStatus" value="all" checked> Toate
+        <input type="radio" name="taskStatus" value="pending"> Pending
+        <input type="radio" name="taskStatus" value="ongoing"> Ongoing
+        <input type="radio" name="taskStatus" value="completed"> Completed
+    </div>
+
+    <div id="results">
+        <p>Încărcare task-uri...</p>
+    </div>
+
+<script>
+    // Schimbă aici cu userul tău din baza de date
+    const CURRENT_USER = "marcomihalca"; 
+
+    function loadTasks(status) {
+        let apiUrl = `http://localhost:8001/get-tasks?user=${CURRENT_USER}`;
+        if (status !== 'all') {
+            apiUrl += `&status=${status}`;
+        }
+
+        $.ajax({
+            url: apiUrl,
+            method: 'GET',
+            success: function(tasks) {
+                let html = `<table>
+                    <tr>
+                        <th>Nume Task</th>
+                        <th>Status</th>
+                        <th>User</th>
+                    </tr>`;
+                
+                if(tasks.length === 0) {
+                    html += "<tr><td colspan='3'>Nu s-au găsit task-uri.</td></tr>";
+                }
+
+                tasks.forEach(t => {
+                    html += `<tr>
+                        <td>${t.name}</td>
+                        <td>${t.status}</td>
+                        <td>${t.user}</td>
+                    </tr>`;
+                });
+
+                html += "</table>";
+                $("#results").html(html);
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        // Inițializare
+        loadTasks('all');
+
+        // Event listener pentru butoanele radio
+        $('input[name="taskStatus"]').change(function() {
+            loadTasks($(this).val());
+        });
+    });
+</script>
+</body>
+</html>
