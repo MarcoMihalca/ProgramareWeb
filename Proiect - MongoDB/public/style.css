@@ -1,0 +1,287 @@
+/* public/style.css */
+body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fafafa;}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-si-locatie { display: flex; align-items: center; gap: 30px; }
+h1 { margin: 0; cursor: pointer; color: #333; transition: color 0.2s; }
+h1:hover { color: #e53935; }
+.locatie { cursor: pointer; color: #e53935; font-weight: bold; }
+.locatie:hover { text-decoration: underline; }
+
+.header-dreapta { display: flex; gap: 15px; flex-wrap: wrap; justify-content: flex-end; }
+
+#buton-cos-header, #buton-inapoi, #buton-comenzi-header {
+    background-color: #f1f3f4;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+#buton-cos-header:hover, #buton-inapoi:hover, #buton-comenzi-header:hover { background-color: #e0e0e0; }
+#buton-cos-header { background-color: #ffeb3b; color: #333; }
+#buton-cos-header:hover { background-color: #fbc02d; }
+#buton-comenzi-header { background-color: #dfe7ff; color: #27418c; }
+#buton-comenzi-header:hover { background-color: #c9d6ff; }
+
+.container-principal {
+    max-width: 1200px; /* Ține conținutul centrat frumos pe ecrane mari */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ECRANUL DE BUN VENIT - THE HERO SECTION */
+#pagina-bun-venit {
+    height: 80vh; /* Ocupă 80% din înălțimea ecranului */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #fff9c4 0%, #ffcc80 100%);
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+    margin-top: 10px;
+}
+
+.continut-eroic h2 { font-size: 3.5em; margin-bottom: 10px; color: #2c3e50; }
+.continut-eroic p { font-size: 1.5em; color: #546e7a; margin-bottom: 40px; }
+
+.mood-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.mood-btn {
+    font-size: 20px;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+.mood-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.buton-secundar {
+    background-color: #ffffff !important;
+    color: #2c3e50;
+    border: 2px solid #d9e2ec !important;
+    margin-top: 10px;
+}
+
+.buton-secundar:hover {
+    background-color: #f7fafc !important;
+}
+
+/* STILURI PENTRU BARA DE CĂUTARE ȘI COȘ */
+#input-cautare {
+    width: 100%; padding: 15px; font-size: 18px; margin-bottom: 30px;
+    border: 2px solid #eee; border-radius: 10px; box-sizing: border-box;
+}
+
+.grid-meniu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.grid-meniu img {
+    display: block;
+}
+
+.grid-meniu button {
+    min-width: 120px;
+}
+
+.cos-container {
+    background-color: white; padding: 30px; border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto;
+}
+#lista-cos { list-style: none; padding: 0; font-size: 1.2em; }
+#lista-cos li { display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;}
+.total-text { font-size: 1.5em; text-align: right; }
+.buton-comanda {
+    width: 100%; padding: 15px; background-color: #4CAF50; color: white;
+    border: none; border-radius: 10px; font-size: 1.2em; font-weight: bold; cursor: pointer;
+}
+.buton-comanda:hover { background-color: #45a049; }
+
+.comenzi-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#lista-comenzi {
+    display: grid;
+    gap: 18px;
+}
+
+.comanda-card {
+    background: white;
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border: 1px solid #eef2f7;
+}
+
+.comanda-card.gol {
+    text-align: center;
+    color: #607d8b;
+}
+
+.comanda-card h3 {
+    margin: 0 0 6px 0;
+}
+
+.comanda-card p {
+    margin: 8px 0;
+    color: #455a64;
+}
+
+.comanda-card__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.status-comanda {
+    background: #fff3cd;
+    color: #8a6d1d;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.lista-produse-comanda {
+    margin: 14px 0 0 0;
+    padding-left: 18px;
+    color: #2c3e50;
+}
+
+.lista-produse-comanda li {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+@media (max-width: 900px) {
+    .grid-meniu {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 18px;
+        gap: 14px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .logo-si-locatie {
+        gap: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-dreapta {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    #pagina-bun-venit {
+        height: auto;
+        min-height: 72vh;
+        padding: 30px 18px;
+    }
+
+    .continut-eroic h2 { font-size: 2.4em; }
+    .continut-eroic p { font-size: 1.15em; }
+
+    .comanda-card__top {
+        flex-direction: column;
+    }
+}
+
+/* --- ANIMAȚIE PENTRU SCHIMBAREA PAGINILOR --- */
+@keyframes fadeInSlide {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Aplicăm animația pe toate secțiunile principale. 
+   De fiecare dată când trec din display:none în display:block/flex, se va rula animația! */
+#pagina-bun-venit, #lista-restaurante, #sectiune-meniu, #sectiune-cos {
+    animation: fadeInSlide 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* --- STILURI PENTRU POP-UP (TOAST NOTIFICATION) --- */
+#toast-notificare {
+    position: fixed;
+    bottom: -100px; /* Ascuns mult sub ecran inițial */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 1000;
+    /* Animație bouncy (elastică) când se modifică valoarea 'bottom' */
+    transition: bottom 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+}
+
+/* Când îi adăugăm clasa asta din JavaScript, va sări pe ecran */
+#toast-notificare.arata {
+    bottom: 40px; 
+}
+
+/* --- Modal extras --- */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+.modal-content {
+    background: white;
+    padding: 20px 22px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 520px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+.extras-item { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f0f3f6; }
+.extras-item label { font-weight:600; }
+.modal-content button { padding:8px 12px; border-radius:8px; border:none; cursor:pointer; }
+#btn-cancel-extras { background:#f1f3f4; }
+#btn-add-extras { background:#ffeb3b; font-weight:700; }

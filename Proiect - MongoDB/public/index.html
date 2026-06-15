@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodApp - Restaurante</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-si-locatie">
+            <h1 onclick="arataBunVenit()">🍔 FoodApp</h1>
+            <span id="locatie-curenta" class="locatie" onclick="schimbaLocatia()">📍 Apasă aici pentru a seta locația</span>
+        </div>
+        
+        <div class="header-dreapta">
+            <button id="buton-inapoi" onclick="arataRestaurantele()" style="display: none;">🏠 Restaurante</button>
+            <button id="buton-comenzi-header" onclick="arataComenzileMele()">📦 Comenzile mele</button>
+            <button id="buton-cos-header" onclick="arataCosul()">🛒 Coș (0 RON)</button>
+        </div>
+    </header>
+
+    <main class="container-principal">
+        
+        <section id="pagina-bun-venit">
+            <div class="continut-eroic">
+                <h2>Pregătit să comanzi? 🛵</h2>
+                <p>În ce mood te simți astăzi?</p>
+                <div class="mood-container">
+                    <button class="mood-btn" onclick="alegeMood('pizza')">🍕 Pizza</button>
+                    <button class="mood-btn" onclick="alegeMood('burger')">🍔 Burger</button>
+                    <button class="mood-btn" onclick="alegeMood('crispy')">🍗 Crispy</button>
+                    <button class="mood-btn" onclick="alegeMood('dulce')">🍰 Ceva Dulce</button>
+                    <button class="mood-btn" style="background-color: #fff;" onclick="alegeMood('')">🍽️ Vezi Tot</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="lista-restaurante" style="display: none;">
+            <h2>Restaurante disponibile</h2>
+            <input type="text" id="input-cautare" placeholder="Caută restaurante, burgeri, pizza..." onkeyup="filtreazaRestaurante()">
+            <div id="container-restaurante" class="grid-restaurante"></div>
+        </section>
+
+        <section id="sectiune-meniu" style="display: none;">
+            <h2 id="nume-restaurant-selectat">Meniu</h2>
+            <div id="container-meniu" class="grid-meniu"></div>
+        </section>
+
+        <section id="sectiune-cos" style="display: none;">
+            <h2>🛒 Coșul tău de cumpărături</h2>
+            <div class="cos-container">
+                <ul id="lista-cos">
+                    <li>Momentan coșul este gol.</li>
+                </ul>
+                <hr>
+                <p class="total-text"><strong id="total-cos">Total: 0 RON</strong></p>
+                <button class="buton-comanda" onclick="trimiteComanda()">Plasează Comanda Acum</button>
+            </div>
+        </section>
+
+        <section id="sectiune-comenzi" style="display: none;">
+            <h2>📦 Comenzile tale</h2>
+            <div class="comenzi-container">
+                <div id="lista-comenzi"></div>
+            </div>
+        </section>
+        
+        <div id="toast-notificare">Produs adăugat în coș! 🛒</div>
+
+    </main>
+
+    <!-- Modal pentru extras (garnituri si sucuri) -->
+    <div id="modal-extras" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h3>Adaugă opțiuni</h3>
+            <div id="extras-list"></div>
+            <div style="margin-top:14px; display:flex; gap:10px; justify-content:flex-end;">
+                <button id="btn-cancel-extras">Anulează</button>
+                <button id="btn-add-extras">Adaugă în coș</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
